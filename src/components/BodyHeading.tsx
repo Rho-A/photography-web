@@ -1,17 +1,17 @@
-type BodyHeadingProps = {
+export interface BodyHeadingProps {
     heading: string;
-    subheading: string;
+    subheading?: string;
     font: string;
     subFont: string;
 }
 
-function BodyHeading({ heading, subheading, font, subFont }: BodyHeadingProps) {
+export const BodyHeading: React.FC<BodyHeadingProps> = ({ heading, subheading, font, subFont }) => {
     return (
-        <div className="text-m mb-5 max-w-7xl mx-auto">
+        <div className="text-m mt-8 mb-8 max-w-7xl mx-auto">
             <h1 className={`text-8xl font-${font}`}>{heading}</h1>
-            <h2 className={`text-2xl font-${subFont}`}>{subheading}</h2>
+            {subheading ? <h2 className={`text-2xl font-${subFont}`}>{subheading}</h2> : <></>}
         </div>
     )
 }
 
-export default BodyHeading;
+BodyHeading.displayName="BodyHeading"

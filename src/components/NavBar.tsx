@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-function NavBar() {
+export const NavBar: React.FC = () => {
     const pathname = usePathname();
     const isHomePage = pathname === '/';
 
@@ -15,7 +15,7 @@ function NavBar() {
     ];
 
     return (
-        <header className={`px-4 py-3 text-gray-30 ${isHomePage ? 'bg-[rgba(112,128,144,0)]' : 'bg-[rgba(133,47,47,1)]'}`}>
+        <header className={`px-4 py-3 text-gray-30 ${isHomePage ? 'bg-[rgba(112,128,144,0)]' : 'bg-[rgba(37,70,119,0.8)]'}`}>
             <div className="max-w-7xl mx-auto flex justify-between items-center">
                 <Link href={'/'}><img src="/logo-white.svg" alt="Logo" className="h-10 w-auto max-w-[120px] object-contain" /></Link>
                 <nav className={`font-serif flex`}>
@@ -48,4 +48,4 @@ function NavBar() {
     );
 }
 
-export default NavBar;
+NavBar.displayName="NavBar";

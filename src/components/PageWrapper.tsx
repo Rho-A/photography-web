@@ -3,7 +3,11 @@
 import { usePathname } from 'next/navigation';
 import { ReactNode } from 'react';
 
-function PageWrapper({ children }: { children: ReactNode }) {
+export interface PageWrapperProps {
+  children: ReactNode
+}
+
+export const PageWrapper: React.FC<PageWrapperProps> = ({ children }) => {
   const pathname = usePathname();
   const isHomePage = pathname === '/';
   const isPorfolioPage = pathname === '/portfolio';
@@ -40,4 +44,4 @@ function PageWrapper({ children }: { children: ReactNode }) {
   );
 }
 
-export default PageWrapper;
+PageWrapper.displayName="PageWrapper";
